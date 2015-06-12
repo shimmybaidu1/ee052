@@ -24,7 +24,7 @@
 ### Options ##################################################################
 
 # remove the comment on the following line to exclude the LwIP code
-# NO_LWIP = 1
+NO_LWIP = 1
 
 
 
