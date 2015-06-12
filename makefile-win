@@ -18,7 +18,7 @@
 # 1/29/2012  Glen George     Made minor fixes
 # 2/7/2012   Glen George     Made minor fixes to armstart target
 #
-########################################################################################
+##############################################################################
 
 
 ### Options ##################################################################
@@ -205,7 +205,7 @@ all: armvoip armstart
 
 .PHONY: clean
 clean:
-	rm .depend armvoip.txt armvoip.map armvoip.elf \
+	del .depend armvoip.txt armvoip.map armvoip.elf \
             armstart.txt armstart.map armstart.elf $(OBJDIR)\*.o
 
 
