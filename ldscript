@@ -1,0 +1,63 @@
+/****************************************************************************/
+/*                                 ldscript                                 */
+/*                   LINKER SCRIPT FOR GNU ARM C COMPILER                   */
+/*                                                                          */
+/* Revision History:                                                        */
+/*    4/23/07   David Lin    Initial revision                               */
+/*    1/24/12   Glen George  Added comments                                 */
+/*                                                                          */
+/****************************************************************************/
+
+
+/* set up the memory map for the system */
+
+MEMORY
+{
+    /* internal memory locations */
+    int_ram (RWX)   : ORIGIN = 0x200000, LENGTH = 16K
+    
+    /* external RAM and ROM locations, may need to be updated */
+    ext_ram (RWX)   : ORIGIN = 0x20000000, LENGTH = 1M
+    ext_rom (RX)    : ORIGIN = 0x10000000, LENGTH = 4M
+}
+
+ENTRY(_start)
+
+SECTIONS
+{
+    /* locate the .text (code) section */
+    .text : 
+    {
+            /* make sure the startup code is the first thing in the located */
+            /*    file since it contains the vector table                   */
+            obj/crt0.o (.text)
+            
+            /* now can add the rest of the code */
+            *(.text)
+            __ecode = .;            /* set label for end of code segment */
+            
+            /* initialized read only data should be with the code */
+            __rom_data_start = .;
+            *(.rodata)
+            *(.rdata)
+            __rom_data_end = .;
+            
+    } > ext_ram
+            
+    /* locate the .data section, used for variable storage when running */
+    .data : 
+    {
+             __data_start = .;
+             *(.data)
+             __edata = .;      /* keep track of the end of the data area */
+    } > ext_ram 
+    
+    /* locate the .bss section, used for uninitialized variables */
+    .bss : 
+    {
+            __start_bss = .;
+            *(.bss)
+            *(COMMON)
+            __end_bss = .;    /* keep track of the end of the bss section */
+    } > ext_ram
+}
