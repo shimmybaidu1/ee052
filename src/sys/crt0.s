@@ -37,7 +37,7 @@
 @     operations during this time.  There is an easy way to do this, but
 @     think about it and only ask me if you still can't come up with anything.
 @
-@   - Set up the chip selects for SRAM/ROM
+@   - Set up the chip selects for SRAM/ROM 
 @
 @   - As you write other functions/code for the various hardware blocks, you
 @     will call the initialization functions for them from here as well.
