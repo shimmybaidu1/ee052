@@ -144,3 +144,32 @@ struct pbuf  *ether_receive()
 {
     return  NULL;
 }
+
+
+// stub functs
+
+void lwip_htons()
+{
+  return;
+}
+
+void lwip_ntohs()
+{
+  return;
+}
+
+
+void lwip_htonl()
+{
+  return;
+}
+
+
+void lwip_ntohl()
+{
+  return;
+}
+
+
+
+

@@ -1,0 +1,32 @@
+
+armstart.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <IRQTable>:
+   0:	ea000006 	b	20 <_start>
+
+00000004 <undef>:
+   4:	eafffffe 	b	4 <undef>
+
+00000008 <swi>:
+   8:	eafffffe 	b	8 <swi>
+
+0000000c <prefetch>:
+   c:	eafffffe 	b	c <prefetch>
+
+00000010 <data>:
+  10:	eafffffe 	b	10 <data>
+
+00000014 <btldr>:
+  14:	00000000 	.word	0x00000000
+
+00000018 <irq>:
+  18:	e51fff20 	ldr	pc, [pc, #-3872]	; fffff100 <SMC_CSR7+0xfffff174>
+
+0000001c <fiq>:
+  1c:	eafffffe 	b	1c <fiq>
+
+00000020 <_start>:
+  20:	eafffffe 	b	20 <_start>

@@ -18,13 +18,13 @@
 # 1/29/2012  Glen George     Made minor fixes
 # 2/7/2012   Glen George     Made minor fixes to armstart target
 #
-########################################################################################
+##############################################################################
 
 
 ### Options ##################################################################
 
 # remove the comment on the following line to exclude the LwIP code
-NO_LWIP = 1
+# NO_LWIP = 1
 
 
 
@@ -46,7 +46,7 @@ OBJCOPY = $(PROC)-$(TYPE)-objcopy
 
 SRCDIR  = src
 OBJDIR  = obj
-LWIPDIR = $(SRCDIR)/lwip-1.4.1/src
+LWIPDIR = $(SRCDIR)/lwip-1.3.2/src
 SYSDIR  = $(SRCDIR)/sys
 VOIPDIR = $(SRCDIR)/voip101
 
@@ -151,8 +151,8 @@ VOIPOBJS  = $(notdir $(VOIPFILES:.c=.o))
 # SYSOBJS= boot.o keypad.o display.o
 # BOOTOBJS= crt0.o
 
-SYSOBJS  = boot.o
-BOOTOBJS = crt0.o
+SYSOBJS  = crt0.o
+BOOTOBJS = boot.o
 
 
 
