@@ -76,6 +76,10 @@ low_level_init:
 @  user initialization goes here  @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+@ a loop for testing stuff
+deadend:
+    MOV         r1, #5
+    B               deadend
 
 
     BL		main			@ run the main function (no arguments)

@@ -171,6 +171,12 @@ vpath %.o $(OBJDIR)
 
 ### Command Line Targets #####################################################
 
+# default target - builds everything
+
+.PHONY: all
+all: armvoip armstart
+
+
 # target for building all code
 
 armvoip: .depend $(SYSOBJS) $(LWIPOBJS) $(VOIPOBJS)
@@ -195,18 +201,15 @@ armstart: $(BOOTOBJS)
 	$(OBJCOPY) -O ihex armstart.elf armstart
 
 	
-# default target - builds everything
 
-.PHONY: all
-all: armvoip armstart
 
 
 # target for cleaning house
 
 .PHONY: clean
 clean:
-	rm .depend armvoip.txt armvoip.map armvoip.elf \
-            armstart.txt armstart.map armstart.elf $(OBJDIR)\*.o
+	rm .depend armvoip armvoip.txt armvoip.map armvoip.elf \
+            armstart armstart.txt armstart.elf $(OBJDIR)/*.o
 
 
 
