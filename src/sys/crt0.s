@@ -82,6 +82,8 @@ deadend:
     B               deadend
 
 
+    BL      keypad_init
+
     BL		main			@ run the main function (no arguments)
 
     B		low_level_init		@ if main returns (shouldn't)

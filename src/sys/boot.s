@@ -5,7 +5,7 @@
 @ Bootloader for the EE52 ARM VoIP phone project.  It sets up any registers    @
 @ needed to copy the main program from the external parallel ROM to the        @
 @ external SRAM.  This includes the following peripherals:                     @
-@                                                                              @
+@                                                                           armstart   @
 @   - Clock                                                                    @
 @   - ROM and SRAM chips selects                                               @
 @                                                                              @
